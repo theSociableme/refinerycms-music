@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.homepage          = "http://github.com/unixcharles/refinerycms-music"
   s.date              = '2011-08-25'
   s.license           = "MIT"
-
+  s.authors           = "unixcharles"
   s.require_paths     = %w(lib)
   s.files             = Dir['lib/**/*', 'config/**/*', 'app/**/*', 'db/**/*']
 end
