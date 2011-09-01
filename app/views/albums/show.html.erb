@@ -1,0 +1,16 @@
+
+
+<% content_for :body_content_left do %>
+
+  <section>
+	
+    <%= @album.songs.each do |song| %>
+    <div class="song-title">
+      <%= song.title %>
+    </div>
+    <% end %>
+  </section>
+<% end %>
+
+
+<%= render :partial => "/shared/content_page" %>
