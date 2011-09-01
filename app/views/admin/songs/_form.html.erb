@@ -10,9 +10,9 @@
   </div>
 
   <div class='field'>
-	<%= fields_for :album do album -%>
-    	<%= album.label :title -%>
-    	<%= album.text_field :title, :class => 'larger widest' -%>
+	<%= fields_for :album do |a| -%>
+    	<%= a.label :title -%>
+    	<%= a.text_field :title, :class => 'larger widest' -%>
 	<% end -%>
   </div>
 
