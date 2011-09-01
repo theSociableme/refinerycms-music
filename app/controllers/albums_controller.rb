@@ -1,11 +1,11 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.published
+    @albums = Album.order("position")
   end
 
   def show
-    @albums = Album.published # for body_content_right
-    @album = Album.find(params[:id], :conditions => {:published => true})
+   # @albums = Album.published # for body_content_right
+    @album = Album.find(params[:id]
   end
   
 
