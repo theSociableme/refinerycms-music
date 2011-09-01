@@ -10,6 +10,7 @@ class CreateMusic < ActiveRecord::Migration
       t.boolean :show_download_link, :default => true
       t.integer :resource_id
       t.integer :position
+      t.integer :album_id
 
       t.timestamps
     end
