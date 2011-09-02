@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
- # before_filter :find_page
+  before_filter :find_page
   def index
     @albums = Album.order("position")
   end

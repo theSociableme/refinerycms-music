@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  #before_filter :find_page
+  before_filter :find_page
 
   def index
     @songs = @album.songs.published
