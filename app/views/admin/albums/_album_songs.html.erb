@@ -24,7 +24,7 @@
       <li>
         <%= render :partial => "/shared/admin/search",
                     :locals => {
-                      :url => admin_album_songs_url
+                      :url => admin_album_songs_url(@album)
                     } %>
       </li>
     <% end %>
