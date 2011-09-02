@@ -4,7 +4,7 @@
   <% end %>
   <% if @album.songs.any? %>
     <div class='pagination_container'>
-      <%= render :partial => 'admin/songs/songs' %>
+      <%= render :partial => 'admin/songs/songs', :locals => {:object => @album.songs} %>
     </div>
   <% else %>
     <p>
