@@ -13,11 +13,11 @@ module Refinery
    #       plugin.menu_match = /(admin|refinery)\/(albums|songs|music_settings)?$/
    
           plugin.menu_match = /(admin|refinery)\/(albums|songs|music_settings)$/
-          #plugin.url = {:controller => '/admin/albums', :action => 'index'}
-          #plugin.activity = {
-          #  :class => Album,
-          #  :title => 'title'
-          #}
+          plugin.url = {:controller => '/admin/albums', :action => 'index'}
+          plugin.activity = {
+            :class => Album,
+            :title => 'title'
+          }
         end
       end
     end
