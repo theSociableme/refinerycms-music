@@ -1,2 +1,15 @@
-<%= will_paginate link_to @albums %>
+<%= will_paginate  @albums %>
+
+<%= will_paginate %>
+
+<ul class="albums">
+  <% @albums.each do |album| %>
+    <li>
+      <%= link_to album.title, album %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+
 <%= render :partial => "sortable_list" %>
