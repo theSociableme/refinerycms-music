@@ -20,14 +20,7 @@
 </div>
 <div id='actions'>
   <ul>
-    <% if Admin::SongsController.searchable? %>
-      <li>
-        <%= render :partial => "/shared/admin/search",
-                    :locals => {
-                      :url => admin_album_songs_url
-                    } %>
-      </li>
-    <% end %>
+   
     <li>
       <%= link_to t('.create_new'), new_admin_album_song_url,
                    :class => "add_icon" %>
