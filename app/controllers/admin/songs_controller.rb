@@ -4,7 +4,7 @@ module Admin
     def create
       @song = Song.new(params[:song])
       if @song.save
-        redirect_to admin_album_songs_path
+        redirect_to admin_album_path(@album)
         flash[:notice] = 'Song created'
       else
         render :action => "new"
