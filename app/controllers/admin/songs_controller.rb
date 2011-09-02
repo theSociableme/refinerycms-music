@@ -2,6 +2,7 @@ module Admin
   class SongsController < Admin::BaseController
     crudify :song, :title_attribute => :title
     def create
+      @album = Album.find(params[:id])
       @song = @album.songs.new(params[:song])
       if @song.save
         redirect_to admin_albums_path
