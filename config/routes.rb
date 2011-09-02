@@ -9,7 +9,7 @@ Refinery::Application.routes.draw do
         match :toggle
       end
     end
-    resources :music, :as => :albums, :controller => :albums, :except => :show do
+    resources :music, :as => :albums, :controller => :albums do
       collection do
         post :update_positions
       end
