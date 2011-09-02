@@ -36,12 +36,12 @@
   <% if !searching? and Admin::SongsController.sortable? and Song.count > 1 %>
     <li>
       <%= link_to t('.reorder', :what => "Songs"),
-                   admin_album_songs_url,
+                   admin_album_songs_url(@album),
                    :id => "reorder_action",
                    :class => "reorder_icon" %>
 
       <%= link_to t('.reorder_done', :what => "Songs"),
-                   admin_album_songs_url,
+                   admin_album_songs_url(@album),
                    :id => "reorder_action_done",
                    :style => "display: none;",
                    :class => "reorder_icon" %>
