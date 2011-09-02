@@ -1,6 +1,6 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(album) -%>">
   <span class='title'>
-    <%= album.title %>
+    <%= link_to album.title, admin_album_path(album) %>
     <span class="preview">&nbsp;</span>
   </span>
   <span class='actions'>
