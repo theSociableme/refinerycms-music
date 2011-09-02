@@ -1,4 +1,4 @@
-<% form_for [:admin, @album, @song], :url => admin_album_song_path do |f| -%>
+<% form_for [:admin, @album, @song] do |f| -%>
   <%= render :partial => "/shared/admin/error_messages", :locals => {
           :object => @song,
           :include_object_name => true
