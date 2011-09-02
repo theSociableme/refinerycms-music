@@ -49,14 +49,7 @@
     </div>
   </div>  
 
-  <%= render :partial => "/shared/admin/form_actions",
-              :locals => {
-                :f => f,
-		        :object_name => 'album_songs',
-                :continue_editing => false,
-                :delete_title => t('delete', :scope => 'admin.songs.song'),
-                :delete_confirmation => t('message', :scope => 'shared.admin.delete', :title => @song.title)
-              } %>
+  
 <% end -%>
 
 <% content_for :javascripts do %>
