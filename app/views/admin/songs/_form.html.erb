@@ -1,6 +1,6 @@
-<% form_for [:admin, @song], :url => admin_album_songs_path do |f| -%>
+<% form_for [@album, @song], :url => admin_album_songs_path do |f| -%>
   <%= render :partial => "/shared/admin/error_messages", :locals => {
-          :object => @song,
+          :object => @album,
           :include_object_name => true
         } %>  
 
@@ -52,6 +52,7 @@
   <%= render :partial => "/shared/admin/form_actions",
               :locals => {
                 :f => f,
+				:object => @album,
                 :continue_editing => false,
                 :delete_title => t('delete', :scope => 'admin.songs.song'),
                 :delete_confirmation => t('message', :scope => 'shared.admin.delete', :title => @song.title)
