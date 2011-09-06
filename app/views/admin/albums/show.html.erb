@@ -33,7 +33,7 @@
                    :class => "add_icon" %>
     </li>
     
-  <% if !searching? and Admin::SongsController.sortable? and Song.count > 1 %>
+  <% if !searching? and @songs.count > 1 %>
     <li>
       <%= link_to t('.reorder', :what => "Songs"),
                    admin_album_songs_url(@album),
@@ -52,4 +52,4 @@
 <%= render :partial => "/shared/admin/make_sortable",
             :locals => {
               :tree => false
-            } if !searching? and Admin::SongsController.sortable? and Song.count > 1 %>
+            } if !searching?  and @songs.count > 1 %>
