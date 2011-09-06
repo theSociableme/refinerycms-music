@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
   def show
    # @albums = Album.published # for body_content_right
     @album = Album.find(params[:id])
-    @psongs = @album.songs.paginate(:page => 1, :per_page => 2)
+    @songs = @album.songs.order("position")
   end
   
   protected
