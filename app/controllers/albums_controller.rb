@@ -5,9 +5,8 @@ class AlbumsController < ApplicationController
   end
 
   def show
-   # @albums = Album.published # for body_content_right
     @album = Album.find(params[:id])
-    @ssongs = @album.songs
+    @ssongs = @album.songs.published
   end
   
   protected
