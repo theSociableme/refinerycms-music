@@ -3,7 +3,13 @@
   
     <div class='pagination_container'>
       
-		<%= render :partial => "sortable_list" %>
+		<ul id='sortable_list'>
+		  <%= render :partial => 'song', :collection => @ssongs %>
+		</ul>
+		<%= render :partial => "/shared/admin/sortable_list",
+		            :locals => {
+		              :continue_reordering => (local_assigns.keys.include?(:continue_reordering)) ? continue_reordering : true
+		            } %>
     </div>
   
 </div>
