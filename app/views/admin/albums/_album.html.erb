@@ -1,11 +1,11 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(album) -%>">
   <span class='title'>
-    <%= link_to album.title, admin_album_path(album) %>
+    <%= link_to album.title, admin_album_songs_path(album) %>
     <span class="preview">&nbsp;</span>
   </span>
   <span class='actions'>
 	
-    <%= link_to refinery_icon_tag("application_go.png"), album_url(album),
+    <%= link_to refinery_icon_tag("application_go.png"), admin_album_url(album),
         :title => t('.view_live_html'),
         :target => "_blank" %>
     <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_album_path(album),
