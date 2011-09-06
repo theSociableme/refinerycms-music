@@ -2,14 +2,14 @@
 
 <% content_for :body_content_left do %>
 
-  <section>
-	
-    <%= @album.songs.each do |song| %>
-    <div class="song-title">
-      <%= song.title %>
-    </div>
+  <ul id="songs">
+    <% @album.songs.each do |song| %>
+      <li id="track">
+        <%= link_to song.title, song_url(song) %>
+      </li>
     <% end %>
-  </section>
+  </ul>
+
 <% end %>
 
 
