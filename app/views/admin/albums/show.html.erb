@@ -22,23 +22,4 @@
                    :class => "add_icon" %>
     </li>
     
-  <% if !searching? and @songs.count > 1 %>
-    <li>
-      <%= link_to t('.reorder', :what => "Songs"),
-                   admin_album_songs_url(@album),
-                   :id => "reorder_action",
-                   :class => "reorder_icon" %>
-
-      <%= link_to t('.reorder_done', :what => "Songs"),
-                   admin_album_songs_url(@album),
-                   :id => "reorder_action_done",
-                   :style => "display: none;",
-                   :class => "reorder_icon" %>
-    </li>
-  <% end %>
-  </ul>
-</div>
-<%= render :partial => "/shared/admin/make_sortable",
-            :locals => {
-              :tree => false
-            } if !searching?  and @songs.count > 1 %>
+  
