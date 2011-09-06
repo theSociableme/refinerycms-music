@@ -6,9 +6,9 @@ class SongsController < ApplicationController
   end
 
   def show
-    @album = @album = Album.find(params[:album_id])
+    @album = @album = Album.find(params[:id])
     @songs = @album.songs.published # for body_content_right
-    @song = @songs.find(params[:id])
+    @song = @songs.find(params[:album_id])
   end
 
 protected
