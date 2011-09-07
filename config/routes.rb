@@ -6,6 +6,12 @@ Refinery::Application.routes.draw do
   #resources :songs, :as => :music
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     
+    resources :songs, :only => :index do
+      collection do
+        post :update_positions
+      end
+    end
+    
     resources :music_settings do
       member do
         match :toggle
@@ -17,18 +23,10 @@ Refinery::Application.routes.draw do
         post :update_positions
       end
       
-      resources :songs, :except => :show do
-        collection do
-          post :update_positions
-        end
-      end 
+      resources :songs, :except => :show 
       
     end
-    resources :songs, :only => :index do
-      collection do
-        post :update_positions
-      end
-    end
+
   end
 end
 
