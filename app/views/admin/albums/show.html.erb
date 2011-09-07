@@ -4,7 +4,7 @@
     <div class='pagination_container'>
       
 		<ul id='sortable_list'>
-		  <%= render :partial => 'song', :collection => @ssongs %>
+		  <%= render :partial => 'song', :collection => @album.songs %>
 		</ul>
 		<%= render :partial => "/shared/admin/sortable_list",
 		            :locals => {
