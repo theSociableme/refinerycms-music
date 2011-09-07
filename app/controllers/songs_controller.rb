@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   before_filter :find_page
 
   def show
-    @album = Album.find(params[:album])
+    @album = Album.find(params[:album_id])
     @song = Song.find(params[:id])
   end
 
