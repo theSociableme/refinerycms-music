@@ -1,6 +1,6 @@
 Refinery::Application.routes.draw do
-  resources :music, :as => :albums, :controller => :albums do
-    resources :songs
+  resources :music, :as => :albums, :controller => :albums, :only => [:index, :show] do
+    resources :songs, :only => :show
   end
   
   #resources :songs, :as => :music
@@ -17,14 +17,14 @@ Refinery::Application.routes.draw do
         post :update_positions
       end
       
-      resources :songs do
+      resources :songs, :except => :show do
         collection do
           post :update_positions
         end
       end 
       
     end
-    resources :songs do
+    resources :songs, :only => :index do
       collection do
         post :update_positions
       end
