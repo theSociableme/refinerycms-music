@@ -24,7 +24,11 @@ Refinery::Application.routes.draw do
       end 
       
     end
-
+    resources :songs do
+      collection do
+        post :update_positions
+      end
+    end
   end
 end
 

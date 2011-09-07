@@ -28,9 +28,9 @@
       <% @album.songs.each do |song| -%>
         <li id="track">
           <% if @song == song %>
-           <b><%= link_to song.title, album_song_path(song) %></b>
+           <b><%= link_to song.title, album_song_path(@album, @song) %></b>
           <% else %>
-            <%= link_to song.title, album_song_path(song) %>
+            <%= link_to song.title, album_song_path(@album, @song) %>
           <% end %>
         </li>
       <% end %>
