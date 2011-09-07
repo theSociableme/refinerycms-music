@@ -28,20 +28,21 @@
       <%= link_to t('.create_new'), new_admin_album_song_url(@album),
                    :class => "add_icon" %>
     </li>
+	<li>
+	  <%= link_to t('.reorder', :what => "Songs"),
+	               admin_album_songs_url(@album),
+	               :id => "reorder_action",
+	               :class => "reorder_icon" %>
+
+	  <%= link_to t('.reorder_done', :what => "Songs"),
+	               admin_album_songs_url(@album),
+	               :id => "reorder_action_done",
+	               :style => "display: none;",
+	               :class => "reorder_icon" %>
+	</li>
  </ul>
 
-<li>
-  <%= link_to t('.reorder', :what => "Songs"),
-               admin_album_songs_url(@album),
-               :id => "reorder_action",
-               :class => "reorder_icon" %>
 
-  <%= link_to t('.reorder_done', :what => "Songs"),
-               admin_album_songs_url(@album),
-               :id => "reorder_action_done",
-               :style => "display: none;",
-               :class => "reorder_icon" %>
-</li>
 </div>
 <%= render :partial => "/shared/admin/make_sortable",
             :locals => {
