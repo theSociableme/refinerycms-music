@@ -44,7 +44,7 @@
 
 
 </div>
-<%= render :partial => "/shared/admin/make_sortable",
+<%= render :partial => "make_sortable_songs",
             :locals => {
               :tree => false
             } if !searching? and Admin::SongsController.sortable? and @album.songs.count > 1 %>
