@@ -5,7 +5,7 @@
   <ul id="songs">
     <% @album.songs.each do |song| %>
       <li id="track">
-        <%= link_to song.title, album_songs_url(@album, song) %>
+        <%= link_to song.title, album_songs_url(@album, song.id) %>
       </li>
     <% end %>
   </ul>
