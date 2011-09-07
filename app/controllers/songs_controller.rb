@@ -2,10 +2,10 @@ class SongsController < ApplicationController
   before_filter :find_page
 
   def show
-    @song = Songs.find(params[:id])
+    @song = Song.find(params[:id])
   end
 
-protected
+  protected
 
   def find_page
     @page = Page.find_by_link_url("/music")
