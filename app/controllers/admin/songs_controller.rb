@@ -14,15 +14,7 @@ module Admin
       end
     end
     
-    def update
-      @album = Album.find(params[:album_id])
-      @song = Song.find(params[:id])
-      
-      if @song.update_attributes(params[:song])
-        flash[:notice] = "Successfully updated song"
-      end
-      respond_with(@song)
-    end
+    
 
   end
 end
