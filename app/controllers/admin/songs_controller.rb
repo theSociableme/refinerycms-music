@@ -13,6 +13,8 @@ module Admin
         render :action => "new"
       end
     end
+    
+    
 
   end
 end
