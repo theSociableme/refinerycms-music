@@ -23,7 +23,11 @@ Refinery::Application.routes.draw do
         post :update_positions
       end
       
-      resources :songs, :except => :show 
+      resources :songs, :except => :show do
+        collection do
+          post :update_positions
+        end
+      end
       
     end
 
