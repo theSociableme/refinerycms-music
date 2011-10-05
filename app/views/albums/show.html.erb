@@ -1,7 +1,7 @@
 
 
 <% content_for :body_content_left do %>
-
+<h1><%= @album.title %> </h1>
   <ul id="songs">
     <% @songs.each do |song| %>
       <li id="track">
@@ -11,6 +11,7 @@
   </ul>
 
 <% end %>
-
-
+<% content_for :body_content_right do %>
+	<%= image_fu @album.title_image, '300x300', :id => "album_main_image" unless @album.title_image.nil? %>
+<% end %>
 <%= render :partial => "/shared/content_page" %>
