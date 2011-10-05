@@ -12,8 +12,8 @@
     <%= f.label :image -%>
     <%= render :partial => "/shared/admin/image_picker", :locals => {
       :f => f,
-      
-      :image => @album.image,
+      :field => :title_image_id,
+      :image => @album.title_image,
       :toggle_image_display => false
     } %>
   </div>
