@@ -2,7 +2,7 @@
   <ul id="albums">
     <% @albums.each do |album| %>
       <li id="album_item">
-		<%= image_fu album.image, '100x100', :id => "album_main_image" unless album.image.nil? %>
+		<%= image_fu album.title_image, '100x100', :id => "album_main_image" unless album.title_image.nil? %>
         <%= link_to album.title, album_url(album) %>
       </li>
     <% end %>
