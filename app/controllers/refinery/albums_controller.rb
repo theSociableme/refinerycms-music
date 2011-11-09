@@ -1,5 +1,5 @@
 module Refinery
-  class AlbumsController < ApplicationController
+  class AlbumsController < ::ApplicationController
     before_filter :find_page
 
     def index

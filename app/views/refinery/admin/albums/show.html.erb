@@ -6,7 +6,7 @@
 		<ul id='sortable_list'>
 		  <%= render :partial => 'song', :collection => @album.songs.order("position") %>
 		</ul>
-		<%= render :partial => "/shared/admin/sortable_list",
+		<%= render :partial => "refinery/admin/sortable_list",
 		            :locals => {
 		              :continue_reordering => (local_assigns.keys.include?(:continue_reordering)) ? continue_reordering : true
 		            } %>
@@ -18,24 +18,24 @@
   <ul>
     <% if Refinery::Admin::SongsController.searchable? %>
       <li>
-        <%= render :partial => "/shared/admin/search",
+        <%= render :partial => "refinery/admin/search",
                     :locals => {
-                      :url => admin_album_songs_url(@album)
+                      :url => main_app.refinery_admin_album_songs_url(@album)
                     } %>
       </li>
     <% end %>
     <li>
-      <%= link_to t('.create_new'), new_admin_album_song_url(@album),
+      <%= link_to t('.create_new'), main_app.new_refinery_admin_album_song_url(@album),
                    :class => "add_icon" %>
     </li>
 	<li>
 	  <%= link_to t('.reorder', :what => "Songs"),
-	               admin_album_songs_url(@album),
+	               main_app.refinery_admin_album_songs_url(@album),
 	               :id => "reorder_action",
 	               :class => "reorder_icon" %>
 
 	  <%= link_to t('.reorder_done', :what => "Songs"),
-	               admin_album_songs_url(@album),
+	               main_app.refinery_admin_album_songs_url(@album),
 	               :id => "reorder_action_done",
 	               :style => "display: none;",
 	               :class => "reorder_icon" %>

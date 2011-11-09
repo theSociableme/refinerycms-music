@@ -1,5 +1,5 @@
 module Refinery
-  class SongsController < ApplicationController
+  class SongsController < ::ApplicationController
     before_filter :find_page
 
     def show

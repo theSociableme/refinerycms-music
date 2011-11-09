@@ -4,10 +4,14 @@ module Refinery
       rake("refinery_music:install:migrations")
     end
 
-    source_root File.expand_path('../../../../db/seeds', __FILE__)
-
     def append_load_seed_data
-      copy_file "music.rb", "#{Rails.root}/db/seeds/music.rb", :verbose => true
+      append_file 'db/seeds.rb', :verbose => true do
+        <<-EOH
+
+# Added by RefineryCMS Music engine
+Refinery::Music::Engine.load_seed
+        EOH
+      end
     end
   end
 end

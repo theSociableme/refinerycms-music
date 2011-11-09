@@ -4,30 +4,30 @@ module Refinery
       flashvar = []
 
       # colors
-      flashvar << "bg=#{MusicSetting.bg}" unless MusicSetting.bg == 'E5E5E5'
-      flashvar << "leftbg=#{MusicSetting.bg}" unless MusicSetting.leftbg == 'CCCCCC'
-      flashvar << "lefticon=#{MusicSetting.lefticon}" unless MusicSetting.lefticon == '333333'
-      flashvar << "voltrack=#{MusicSetting.voltrack}" unless MusicSetting.voltrack == 'F2F2F2'
-      flashvar << "volslider=#{MusicSetting.volslider}" unless MusicSetting.volslider == '666666'
-      flashvar << "rightbg=#{MusicSetting.rightbg}" unless MusicSetting.rightbg == 'B4B4B4'
-      flashvar << "rightbghover=#{MusicSetting.rightbghover}" unless MusicSetting.rightbghover == '999999'
-      flashvar << "righticon=#{MusicSetting.righticon}" unless MusicSetting.righticon == '333333'
-      flashvar << "righticonhover=#{MusicSetting.righticonhover}" unless MusicSetting.righticonhover == 'FFFFFF'
-      flashvar << "righticonhover=#{MusicSetting.righticonhover}" unless MusicSetting.righticonhover == 'FFFFFF'
-      flashvar << "loader=#{MusicSetting.loader}" unless MusicSetting.loader == '009900'
-      flashvar << "track=#{MusicSetting.track}" unless MusicSetting.track == 'FFFFFF'
-      flashvar << "tracker=#{MusicSetting.tracker}" unless MusicSetting.tracker == 'DDDDDD'
-      flashvar << "border=#{MusicSetting.border}" unless MusicSetting.border == 'CCCCCC'
-      flashvar << "skip=#{MusicSetting.skip}" unless MusicSetting.skip == '666666'
-      flashvar << "text=#{MusicSetting.text}" unless MusicSetting.text == '333333'
+      flashvar << "bg=#{Refinery::MusicSetting.bg}" unless Refinery::MusicSetting.bg == 'E5E5E5'
+      flashvar << "leftbg=#{Refinery::MusicSetting.bg}" unless Refinery::MusicSetting.leftbg == 'CCCCCC'
+      flashvar << "lefticon=#{Refinery::MusicSetting.lefticon}" unless Refinery::MusicSetting.lefticon == '333333'
+      flashvar << "voltrack=#{Refinery::MusicSetting.voltrack}" unless Refinery::MusicSetting.voltrack == 'F2F2F2'
+      flashvar << "volslider=#{Refinery::MusicSetting.volslider}" unless Refinery::MusicSetting.volslider == '666666'
+      flashvar << "rightbg=#{Refinery::MusicSetting.rightbg}" unless Refinery::MusicSetting.rightbg == 'B4B4B4'
+      flashvar << "rightbghover=#{Refinery::MusicSetting.rightbghover}" unless Refinery::MusicSetting.rightbghover == '999999'
+      flashvar << "righticon=#{Refinery::MusicSetting.righticon}" unless Refinery::MusicSetting.righticon == '333333'
+      flashvar << "righticonhover=#{Refinery::MusicSetting.righticonhover}" unless Refinery::MusicSetting.righticonhover == 'FFFFFF'
+      flashvar << "righticonhover=#{Refinery::MusicSetting.righticonhover}" unless Refinery::MusicSetting.righticonhover == 'FFFFFF'
+      flashvar << "loader=#{Refinery::MusicSetting.loader}" unless Refinery::MusicSetting.loader == '009900'
+      flashvar << "track=#{Refinery::MusicSetting.track}" unless Refinery::MusicSetting.track == 'FFFFFF'
+      flashvar << "tracker=#{Refinery::MusicSetting.tracker}" unless Refinery::MusicSetting.tracker == 'DDDDDD'
+      flashvar << "border=#{Refinery::MusicSetting.border}" unless Refinery::MusicSetting.border == 'CCCCCC'
+      flashvar << "skip=#{Refinery::MusicSetting.skip}" unless Refinery::MusicSetting.skip == '666666'
+      flashvar << "text=#{Refinery::MusicSetting.text}" unless Refinery::MusicSetting.text == '333333'
       # Boolean
-      flashvar << "autostart=yes" if MusicSetting.autostart == true
-      flashvar << "loop=yes" if MusicSetting.loop_track == true
-      flashvar << "animation=no" if MusicSetting.animation == false
-      flashvar << "remaining=yes" if MusicSetting.remaining == true
-      flashvar << "noinfo=yes" if MusicSetting.noinfo == true
+      flashvar << "autostart=yes" if Refinery::MusicSetting.autostart == true
+      flashvar << "loop=yes" if Refinery::MusicSetting.loop_track == true
+      flashvar << "animation=no" if Refinery::MusicSetting.animation == false
+      flashvar << "remaining=yes" if Refinery::MusicSetting.remaining == true
+      flashvar << "noinfo=yes" if Refinery::MusicSetting.noinfo == true
       # size
-      flashvar << "width=#{MusicSetting.width}"
+      flashvar << "width=#{Refinery::MusicSetting.width}"
 
       if music.respond_to? :each
         artists = []
@@ -52,7 +52,7 @@ module Refinery
 
 
       raw <<-EOF
-    <object type="application/x-shockwave-flash" data="/player.swf" height="84px" width="#{MusicSetting.width}">
+    <object type="application/x-shockwave-flash" data="/player.swf" height="84px" width="#{Refinery::MusicSetting.width}">
       <param name="movie" value="/player.swf" />
       <param name="FlashVars" value="#{flashvar.join('&')}" />
       <param name="quality" value="high" />

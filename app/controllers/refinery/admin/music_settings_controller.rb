@@ -1,7 +1,10 @@
 module Refinery
   module Admin
     class MusicSettingsController < ::Refinery::AdminController
-      crudify :music_setting, :title_attribute => :name, :order => "id ASC", :searchable => false
+      crudify :'refinery/music_setting',
+              :title_attribute => :name,
+              :order => "id ASC",
+              :searchable => false
 
       def toggle
         @music_setting = Refinery::MusicSetting.find(params[:id])

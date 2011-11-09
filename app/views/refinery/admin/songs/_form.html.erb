@@ -1,5 +1,5 @@
-<%= form_for [@album, @song], :url => admin_album_songs_path(@album) do |f| -%>
-  <%= render :partial => "/shared/admin/error_messages", :locals => {
+<%= form_for [@album, @song], :url => main_app.refinery_admin_album_songs_path(@album) do |f| -%>
+  <%= render :partial => "refinery/admin/error_messages", :locals => {
           :object => @song,
           :include_object_name => true
         } %>  
@@ -16,7 +16,7 @@
   
   <div class='field images_field'>
     <%= f.label :resource, 'Audio resource' %>
-    <%= render :partial => "/shared/admin/resource_picker", :locals => {
+    <%= render :partial => "refinery/admin/resource_picker", :locals => {
           :f => f, 
           :field => :resource_id, 
           :resource => @song.resource, 
@@ -49,7 +49,7 @@
     </div>
   </div>  
 
-  <%= render :partial => "/shared/admin/form_actions",
+  <%= render :partial => "refinery/admin/form_actions",
               :locals => {
                 :f => f,
 				:hide_cancel => true,

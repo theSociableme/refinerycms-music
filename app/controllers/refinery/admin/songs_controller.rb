@@ -1,7 +1,9 @@
 module Refinery
   module Admin
     class SongsController < ::Refinery::AdminController
-      crudify :song, :title_attribute => :title
+      crudify 'refinery/song', :title_attribute => :title,
+              :order => 'position ASC',
+              :redirect_to_url => "main_app.refinery_admin_songs_path"
 
       def create
 
@@ -9,7 +11,7 @@ module Refinery
         @song = @album.songs.new(params[:song])
 
         if @song.save
-          redirect_to admin_album_path(@album)
+          redirect_to main_app.refinery_admin_album_path(@album)
           flash[:notice] = 'Song created'
         else
           render :action => "new"

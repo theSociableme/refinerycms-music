@@ -3,16 +3,16 @@
     <span class='actions'>
       <% if music_setting.value != nil  %>
         <%= link_to refinery_icon_tag("#{music_setting.value ? 'cross' : 'tick'}.png"), 
-            toggle_admin_music_setting_path(music_setting.id),
+            main_app.toggle_refinery_admin_music_setting_path(music_setting.id),
             {:title => "Set this setting to #{music_setting.value ? 'false' : 'true'}"} %>
       <% end %>
       <% if music_setting.color %>
-        <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_music_setting_path(music_setting),
+        <%= link_to refinery_icon_tag("application_edit.png"), main_app.edit_refinery_admin_music_setting_path(music_setting),
             :title => 'Edit this color setting' if music_setting.value.nil? %>
       <% end %>
 
       <% if music_setting.size %>
-        <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_music_setting_path(music_setting),
+        <%= link_to refinery_icon_tag("application_edit.png"), main_app.edit_refinery_admin_music_setting_path(music_setting),
             :title => 'Edit this color setting' if music_setting.value.nil? %>
       <% end %>
             
@@ -24,7 +24,7 @@
           :style => "background-color:##{music_setting.color};padding:4px" ) unless music_setting.color.nil? %>
       <%= music_setting.size.to_s + 'px' unless music_setting.size.nil? -%>
       </strong> 
-    <%= link_to '?', edit_admin_music_setting_path(music_setting), :title => music_setting.description %>
+    <%= link_to '?', main_app.edit_refinery_admin_music_setting_path(music_setting), :title => music_setting.description %>
     <span class="preview">&nbsp;</span>
   </span>
 </li>

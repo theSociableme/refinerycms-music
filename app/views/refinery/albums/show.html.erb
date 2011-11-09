@@ -12,4 +12,4 @@
 <% content_for :body_content_right do %>
 	<%= image_fu @album.title_image, '300x300', :id => "album_main_image" unless @album.title_image.nil? %>
 <% end %>
-<%= render :partial => "/shared/content_page" %>
+<%= render :partial => "refinery/content_page" %>
