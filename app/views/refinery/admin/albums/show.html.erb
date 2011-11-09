@@ -16,7 +16,7 @@
 
 <div id='actions'>
   <ul>
-    <% if Admin::SongsController.searchable? %>
+    <% if Refinery::Admin::SongsController.searchable? %>
       <li>
         <%= render :partial => "/shared/admin/search",
                     :locals => {
@@ -47,6 +47,6 @@
 <%= render :partial => "make_sortable_songs",
             :locals => {
               :tree => false
-            } if !searching? and Admin::SongsController.sortable? and @album.songs.count > 1 %>
+            } if !searching? and Refinery::Admin::SongsController.sortable? and @album.songs.count > 1 %>
     
   

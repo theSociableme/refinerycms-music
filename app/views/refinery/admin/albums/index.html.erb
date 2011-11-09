@@ -20,7 +20,7 @@
 </div>
 <div id='actions'>
   <ul>
-    <% if Admin::AlbumsController.searchable? %>
+    <% if Refinery::Admin::AlbumsController.searchable? %>
       <li>
         <%= render :partial => "/shared/admin/search",
                     :locals => {
@@ -35,7 +35,7 @@
     <li>
       <%=link_to t('.settings'), admin_music_settings_url, :class => "edit_icon" %>
     </li>
-  <% if !searching? and Admin::AlbumsController.sortable? and Album.count > 1 %>
+  <% if !searching? and Refinery::Admin::AlbumsController.sortable? and Refinery::Album.count > 1 %>
     <li>
       <%= link_to t('.reorder', :what => "Albums"),
                    admin_albums_url,
@@ -54,4 +54,4 @@
 <%= render :partial => "/shared/admin/make_sortable",
             :locals => {
               :tree => false
-            } if !searching? and Admin::AlbumsController.sortable? and Album.count > 1 %>
+            } if !searching? and Refinery::Admin::AlbumsController.sortable? and Refinery::Album.count > 1 %>

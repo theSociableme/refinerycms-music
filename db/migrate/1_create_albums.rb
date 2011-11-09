@@ -1,6 +1,6 @@
 class CreateAlbums < ActiveRecord::Migration
   def self.up
-    create_table :albums do |t|
+    create_table :refinery_albums do |t|
       t.string :title
       t.integer :position
 
@@ -9,6 +9,6 @@ class CreateAlbums < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :albums
+    drop_table :refinery_albums
   end
 end

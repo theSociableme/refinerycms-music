@@ -1,13 +1,13 @@
-class AddImageIdToAlbums < ActiveRecord::Migration
+class AddImageToAlbum < ActiveRecord::Migration
 
   def self.up
-    unless ::Album.column_names.map(&:to_sym).include?(:image_id)
-      add_column ::Album.table_name, :title_image_id, :integer
+    unless Refinery::Album.column_names.map(&:to_sym).include?(:image_id)
+      add_column Refinery::Album.table_name, :title_image_id, :integer
     end
   end
 
   def self.down
-    remove_column ::Album.table_name, :title_image_id
+    remove_column Refinery::Album.table_name, :title_image_id
   end
 
 end

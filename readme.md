@@ -21,7 +21,7 @@ The admin interface allow you to create new song and change to colors/settings/s
     # Gemfile    
     gem 'refinerycms-music'
 
-    rails generate refinerycms_music
+    rails generate refinery:music
     rake db:migrate
 
 ## Todo:
