@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  scope(:module => 'refinery') do
-    resources :music, :as => :albums, :controller => :albums, :only => [:index, :show] do
+  resources :music, :as => :albums, :controller => :albums, :only => [:index, :show] do
       resources :songs, :only => :show
-    end
+  end
 
+  scope(:module => 'refinery') do
     scope(:path => 'refinery', :as => 'refinery_admin', :module => 'admin') do
       resources :songs do
         collection do
