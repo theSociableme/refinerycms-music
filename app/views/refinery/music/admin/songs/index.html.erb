@@ -20,7 +20,7 @@
 </div>
 <div id='actions'>
   <ul>
-    <% if Refinery::Admin::SongsController.searchable? %>
+    <% if Refinery::Music::Admin::SongsController.searchable? %>
       <li>
         <%= render :partial => "refinery/admin/search",
                     :locals => {
@@ -54,4 +54,4 @@
 <%= render :partial => "refinery/admin/make_sortable",
             :locals => {
               :tree => false
-            } if !searching? and Refinery::Admin::SongsController.sortable? and Refinery::Song.count > 1 %>
+            } if !searching? and Refinery::Music::Admin::SongsController.sortable? and Refinery::Song.count > 1 %>
