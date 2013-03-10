@@ -5,6 +5,15 @@ module Refinery
         crudify 'refinery/music/song', :title_attribute => :title,
                 :order => 'position ASC'
 
+        def new
+          @album = Refinery::Music::Album.find(params[:album_id])
+          @song = @album.songs.build
+        end
+
+        def edit
+          @song = Refinery::Music::Song.find(params[:id])
+          @album = @song.album
+        end
 
         def create
 
@@ -12,12 +21,16 @@ module Refinery
           @song = @album.songs.new(params[:song])
 
           if @song.save
-            redirect_to main_app.refinery_admin_album_path(@album)
+            redirect_to refinery.music_admin_album_path(@album)
             flash[:notice] = 'Song created'
           else
             render :action => "new"
           end
         end
+        #
+        #def update_positions
+        #
+        #end
       end
     end
   end

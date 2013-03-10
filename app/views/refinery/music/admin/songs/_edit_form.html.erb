@@ -1,9 +1,10 @@
-<%= form_for [@album, @song], :url => main_app.refinery_admin_album_song_path(@album) do |f| -%>
+<%= form_for @song, :url => refinery.music_admin_song_path(:album_id => @album.id) do |f| -%>
   <%= render :partial => "refinery/admin/error_messages", :locals => {
           :object => @song,
           :include_object_name => true
         } %>  
 
+  <%=  f.hidden_field :album_id %>
   <div class='field'>
     <%= f.label :artist -%>
     <%= f.text_field :artist, :class => 'larger widest' -%>

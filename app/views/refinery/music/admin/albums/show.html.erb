@@ -16,26 +16,26 @@
 
 <div id='actions'>
   <ul>
-    <% if Refinery::Admin::SongsController.searchable? %>
+    <% if Refinery::Music::Admin::SongsController.searchable? %>
       <li>
         <%= render :partial => "refinery/admin/search",
                     :locals => {
-                      :url => main_app.refinery_admin_album_songs_url(@album)
+                      :url => refinery.music_admin_songs_url(@album)
                     } %>
       </li>
     <% end %>
     <li>
-      <%= link_to t('.create_new'), main_app.new_refinery_admin_album_song_url(@album),
+      <%= link_to t('.create_new'), refinery.new_music_admin_song_url(:album_id => @album.id),
                    :class => "add_icon" %>
     </li>
 	<li>
 	  <%= link_to t('.reorder', :what => "Songs"),
-	               main_app.refinery_admin_album_songs_url(@album),
+                  refinery.music_admin_songs_url(:album_id => @album.id),
 	               :id => "reorder_action",
 	               :class => "reorder_icon" %>
 
 	  <%= link_to t('.reorder_done', :what => "Songs"),
-	               main_app.refinery_admin_album_songs_url(@album),
+                  refinery.music_admin_songs_url(@album),
 	               :id => "reorder_action_done",
 	               :style => "display: none;",
 	               :class => "reorder_icon" %>
@@ -47,6 +47,6 @@
 <%= render :partial => "make_sortable_songs",
             :locals => {
               :tree => false
-            } if !searching? and Refinery::Admin::SongsController.sortable? and @album.songs.count > 1 %>
+            } if !searching? and Refinery::Music::Admin::SongsController.sortable? and @album.songs.count > 1 %>
     
   

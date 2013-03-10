@@ -4,12 +4,12 @@
     <span class="preview">&nbsp;</span>
   </span>
   <span class='actions'>
-    <%= link_to refinery_icon_tag("application_go.png"), main_app.refinery_admin_album_song_path(@album, song),
+    <%= link_to refinery_icon_tag("application_go.png"), refinery.music_admin_song_path(song),
         :title => t('.view_live_html'),
         :target => "_blank" %>
-    <%= link_to refinery_icon_tag("application_edit.png"), main_app.edit_refinery_admin_album_song_path(@album, song),
+    <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_music_admin_song_path(song),
          :title => t('.edit') %>
-    <%= link_to refinery_icon_tag("delete.png"), main_app.refinery_admin_album_song_path(@album, song),
+    <%= link_to refinery_icon_tag("delete.png"), refinery.music_admin_song_path(song),
         :class => "cancel confirm-delete",
         :title => t('.delete'),
         :confirm => t('message', :scope => 'shared.admin.delete', :title => song.title),

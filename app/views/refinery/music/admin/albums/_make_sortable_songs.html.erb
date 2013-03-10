@@ -4,7 +4,7 @@
 <% content_for :javascripts do %>
   <script>
     $(document).ready(function(){
-      list_reorder.update_url     = '<%= update_url ||= url_for(:action => "update_positions", :controller => "refinery/songs") %>';
+      list_reorder.update_url     = '<%= update_url ||= refinery.update_positions_music_admin_songs_path(:album_id => @album.id) %>';
       list_reorder.sortable_list  = $('#<%= list_id ||= "sortable_list" %>');
       list_reorder.tree           = <%= tree %>;
       list_reorder.init();
