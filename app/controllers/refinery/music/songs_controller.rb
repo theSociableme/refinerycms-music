@@ -1,10 +1,10 @@
-class SongsController < ::ApplicationController
+class Refinery::Music::SongsController < ::ApplicationController
   before_filter :find_page
 
   def show
     # @album = Album.find(params[:album_id])
-    @song = Refinery::Song.find(params[:id])
-    @album = Refinery::Album.find(params[:album_id])
+    @song = Refinery::Music::Song.find(params[:id])
+    @album = Refinery::Music::Album.find(params[:album_id])
   end
 
   protected

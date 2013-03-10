@@ -1,0 +1,52 @@
+<div id='records'>
+  
+  
+    <div class='pagination_container'>
+      
+		<ul id='sortable_list'>
+		  <%= render :partial => 'song', :collection => @album.songs.order("position") %>
+		</ul>
+		<%= render :partial => "refinery/admin/sortable_list",
+		            :locals => {
+		              :continue_reordering => (local_assigns.keys.include?(:continue_reordering)) ? continue_reordering : true
+		            } %>
+    </div>
+  
+</div>
+
+<div id='actions'>
+  <ul>
+    <% if Refinery::Admin::SongsController.searchable? %>
+      <li>
+        <%= render :partial => "refinery/admin/search",
+                    :locals => {
+                      :url => main_app.refinery_admin_album_songs_url(@album)
+                    } %>
+      </li>
+    <% end %>
+    <li>
+      <%= link_to t('.create_new'), main_app.new_refinery_admin_album_song_url(@album),
+                   :class => "add_icon" %>
+    </li>
+	<li>
+	  <%= link_to t('.reorder', :what => "Songs"),
+	               main_app.refinery_admin_album_songs_url(@album),
+	               :id => "reorder_action",
+	               :class => "reorder_icon" %>
+
+	  <%= link_to t('.reorder_done', :what => "Songs"),
+	               main_app.refinery_admin_album_songs_url(@album),
+	               :id => "reorder_action_done",
+	               :style => "display: none;",
+	               :class => "reorder_icon" %>
+	</li>
+ </ul>
+
+
+</div>
+<%= render :partial => "make_sortable_songs",
+            :locals => {
+              :tree => false
+            } if !searching? and Refinery::Admin::SongsController.sortable? and @album.songs.count > 1 %>
+    
+  

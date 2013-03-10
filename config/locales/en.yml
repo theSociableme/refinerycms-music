@@ -1,24 +1,25 @@
 en:
-  plugins:
-    music:
-      title: Music
-  admin:
+  refinery:
+    plugins:
+      music:
+        title: Music
+    admin:
+      songs:
+        index:
+          title: Songs
+          create_new: Add New Song
+          reorder: Reorder Songs
+          reorder_done: Done Reordering Songs
+          settings: Edit music settings
+          sorry_no_results: Sorry! There are no results found.
+          no_items_yet: There are no songs yet. Click "Add New Music" to add your first music.
+        song:
+          view_live_html: View this song live <br/><em>(opens in a new window)</em>
+          edit: Edit this song
+          delete: Remove this song forever
     songs:
-      index:
-        title: Songs
-        create_new: Add New Song
-        reorder: Reorder Songs
-        reorder_done: Done Reordering Songs
-        settings: Edit music settings
-        sorry_no_results: Sorry! There are no results found.
-        no_items_yet: There are no songs yet. Click "Add New Music" to add your first music.
-      song:
-        view_live_html: View this song live <br/><em>(opens in a new window)</em>
-        edit: Edit this song
-        delete: Remove this song forever
-  songs:
-    show:
-      other: Other Songs
-      download-advice: (you might need to right click and save as...)
-      download: Download this track!
-      nofile: Oops! the song exist, but we don't have the file yet!
+      show:
+        other: Other Songs
+        download-advice: (you might need to right click and save as...)
+        download: Download this track!
+        nofile: Oops! the song exist, but we don't have the file yet!

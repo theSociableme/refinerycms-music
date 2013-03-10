@@ -3,28 +3,25 @@ require 'refinerycms-music'
 module Refinery
   module Music
     class Engine < Rails::Engine
-=begin
-      initializer "static assets" do |app|
-        app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
-      end
-=end
       include Refinery::Engine
-
-      isolate_namespace Refinery
+      isolate_namespace Refinery::Music
       engine_name :refinery_music
 
       initializer "register refinerycms_music plugin", :after => :set_routes_reloader do |app|
         Refinery::Plugin.register do |plugin|
+          plugin.name = "music"
+          plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.music_admin_albums_path }
           plugin.pathname = root
-          plugin.name = "refinerycms_music"
-          plugin.menu_match = /(admin|refinery)\/(albums|songs|music_settings)$/
-          #plugin.url = {:controller => '/admin/albums', :action => 'index'}
-          plugin.url = app.routes.url_helpers.refinery_admin_albums_path
+
           plugin.activity = {
-              :class_name => :'refinery/album',
-              :title => 'title',
-              :url_prefix => nil
+              :class_name => :'refinery/music/album',
+              :title => 'title'
           }
+
+          #plugin.menu_match = /(admin|refiner/y)\/(music|albums|songs|music_settings)$/
+          #plugin.url = {:controller => '/refinery/albums', :action => 'index'}
+
+
         end
       end
 

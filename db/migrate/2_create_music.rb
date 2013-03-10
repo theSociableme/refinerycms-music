@@ -2,7 +2,7 @@ class CreateMusic < ActiveRecord::Migration
 
   def self.up
 
-    create_table :refinery_songs do |t|
+    create_table :refinery_music_songs do |t|
       t.string :title
       t.string :artist
       t.text :description
@@ -15,10 +15,10 @@ class CreateMusic < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :refinery_songs, :id
-    add_index :refinery_songs, [:id, :published]
+    add_index :refinery_music_songs, :id
+    add_index :refinery_music_songs, [:id, :published]
 
-    create_table :refinery_music_settings do |t|
+    create_table :refinery_music_music_settings do |t|
       t.string   :name
       t.boolean  :value
       t.string   :color
@@ -30,8 +30,8 @@ class CreateMusic < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :refinery_music_settings, :id
-    add_index :refinery_music_settings, :name
+    add_index :refinery_music_music_settings, :id
+    add_index :refinery_music_music_settings, :name
 
   #  load(Rails.root.join('db', 'seeds', 'music.rb'))
   end
@@ -41,8 +41,8 @@ class CreateMusic < ActiveRecord::Migration
 
     Refinery::Page.delete_all({:link_url => "/music"})
 
-    drop_table :refinery_songs
-    drop_table :refinery_music_settings
+    drop_table :refinery_music_songs
+    drop_table :refinery_music_music_settings
   end
 
 end

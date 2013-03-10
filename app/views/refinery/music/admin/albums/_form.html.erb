@@ -1,0 +1,38 @@
+<%= form_for @album, :url => main_app.refinery_admin_albums_path do |f| -%>
+    <%= render :partial => "refinery/admin/error_messages",
+               :locals => {
+                       :object => @album,
+                       :include_object_name => true
+               } %>
+
+    <div class='field'>
+        <%= f.label :title -%>
+        <%= f.text_field :title, :class => 'larger widest' -%>
+    </div>
+    <div class='field'>
+        <%= f.label :image -%>
+        <%= render :partial => "refinery/admin/image_picker", :locals => {
+                :f => f,
+                :field => :title_image_id,
+                :image => @album.title_image,
+                :toggle_image_display => false
+        } %>
+    </div>
+
+
+    <%= render :partial => "/refinery/admin/form_actions",
+               :locals => {
+                       :f => f,
+                       :continue_editing => false,
+                       :delete_title => t('delete', :scope => 'admin.albums.album'),
+                       :delete_confirmation => t('message', :scope => 'shared.admin.delete', :title => @album.title)
+               } %>
+<% end -%>
+
+<% content_for :javascripts do %>
+    <script>
+        $(document).ready(function() {
+            page_options.init(false, '', '');
+        });
+    </script>
+<% end %>

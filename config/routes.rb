@@ -1,35 +1,32 @@
-Rails.application.routes.draw do
-  resources :music, :as => :albums, :controller => :albums, :only => [:index, :show] do
-      resources :songs, :only => :show
+Refinery::Core::Engine.routes.append do
+
+  namespace :music do
+    resources :albums, :path =>'', :only => [:index, :show] do
+        resources :songs, :only => :show
+    end
   end
 
-  scope(:module => 'refinery') do
-    scope(:path => 'refinery', :as => 'refinery_admin', :module => 'admin') do
-      resources :songs do
-        collection do
-          post :update_positions
-        end
-      end
-
-      resources :music_settings do
-        member do
-          match :toggle
-        end
-      end
-
-      resources :music, :as => :albums, :controller => :albums do
-        collection do
-          post :update_positions
-        end
-
+    namespace :music, :path => '' do
+      namespace :admin, :path => 'refinery' do
         resources :songs, :except => :show do
+          collection do
+            post :update_positions
+          end
+        end
+
+        resources :music_settings do
+          member do
+            match :toggle
+          end
+        end
+
+        resources :albums do
           collection do
             post :update_positions
           end
         end
       end
     end
-  end
 
   #resources :songs, :as => :music
 end
